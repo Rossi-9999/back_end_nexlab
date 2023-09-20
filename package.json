@@ -1,0 +1,39 @@
+{
+  "name": "graphql-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts"
+  },
+  "keywords": [
+    "graphql",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "@types/pg": "^7.14.11",
+    "@types/uuid": "^8.3.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.5.0",
+    "graphql-yoga": "^4.0.4",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.0.1",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.4",
+    "@types/jsonwebtoken": "^9.0.3",
+    "@types/node": "^14.14.35",
+    "sequelize-cli": "^6.2.0",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.3"
+  }
+}
