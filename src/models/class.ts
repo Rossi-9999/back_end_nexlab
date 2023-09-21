@@ -5,16 +5,18 @@ import { Model, UUIDV4 } from "sequelize";
 interface ClassAttributes {
   id: string;
   name: string;
+  status: boolean;
 }
 
 module.exports = (sequelize: any, DataTypes: any) => {
   class Class extends Model<ClassAttributes> implements ClassAttributes {
     id!: string;
     name!: string;
+    status!: boolean;
 
     static associate(models: any) {
       Class.belongsToMany(models.Student, {
-        through: "ClassRegistrations",
+        through: "Enrollments",
       });
     }
   }
@@ -29,6 +31,12 @@ module.exports = (sequelize: any, DataTypes: any) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
+      },
+      status: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
       },
     },
     {

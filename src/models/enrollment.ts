@@ -2,28 +2,37 @@
 
 import { Model } from "sequelize";
 
-interface ClassRegistrationAttributes {
+interface EnrollmentAttributes {
+  id: string;
   StudentId: string;
   ClassId: string;
+  status: boolean;
 }
 
 module.exports = (sequelize: any, DataTypes: any) => {
-  class ClassRegistration
-    extends Model<ClassRegistrationAttributes>
-    implements ClassRegistrationAttributes
+  class Enrollment
+    extends Model<EnrollmentAttributes>
+    implements EnrollmentAttributes
   {
+    id!: string;
     StudentId!: string;
     ClassId!: string;
+    status!: boolean;
 
     static associate(models: any) {}
   }
 
-  ClassRegistration.init(
+  Enrollment.init(
     {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        primaryKey: true,
+      },
       StudentId: {
         type: DataTypes.UUID,
         allowNull: false,
-        primaryKey: true,
         references: {
           model: "Students",
           key: "id",
@@ -32,17 +41,21 @@ module.exports = (sequelize: any, DataTypes: any) => {
       ClassId: {
         type: DataTypes.UUID,
         allowNull: false,
-        primaryKey: true,
         references: {
           model: "Classes",
           key: "id",
         },
       },
+      status: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
+      },
     },
     {
       sequelize,
-      modelName: "ClassRegistration",
+      modelName: "Enrollment",
     }
   );
-  return ClassRegistration;
+  return Enrollment;
 };

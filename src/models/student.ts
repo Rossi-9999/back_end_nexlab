@@ -18,7 +18,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
 
     static associate(models: any) {
       Student.belongsToMany(models.Class, {
-        through: "ClassRegistrations",
+        through: "Enrollments",
       });
     }
   }

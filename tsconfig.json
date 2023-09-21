@@ -69,5 +69,5 @@
   },
   "files": ["src/types.d.ts"],
   "exclude": ["node_modules"],
-  "include": ["./**/*.ts", "graphql/schema.js"]
+  "include": ["./**/*.ts"]
 }
